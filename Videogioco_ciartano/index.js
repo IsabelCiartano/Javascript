@@ -130,6 +130,7 @@ function setup(){
     ferm = 0;
     schema = 1;
 }
+
 //funzione crea monete 
 function creaMonete() {
     monete = [];
@@ -295,7 +296,6 @@ function scegliPersonaggio(immaginePG, imgDxPG, imgSxPG) {
 }
 function gestisciMovimento() {
     if (!player) return;
-    
     if (keyIsDown(65)) { // tasto A
         player.imgShow = (personaggioScelto == 1) ? pg1Sx : pg2Sx;
         player.moveSx();
@@ -303,7 +303,7 @@ function gestisciMovimento() {
         player.imgShow = (personaggioScelto == 1) ? pg1Dx : pg2Dx;
         player.moveDx();
     } else {
-        // Nessun tasto premuto → mostra immagine frontale
+        // Nessun tasto premuto  mostra immagine frontale
         player.imgShow = (personaggioScelto == 1) ? pg1F : pg2F;
     }
 }
@@ -906,10 +906,4 @@ function gestisciPiattaforme(player, piattaforme) {
       player.sullaTerraPiattaforma = true;
     }
   }
-}
-
-
-
-
-
-
+}  
