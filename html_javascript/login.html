@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section>
+        <form>
+            <label>Nome:</label>
+            <input type="text" id="fname"><br>
+            <label>Cognome:</label>
+            <input type="text" id="lname"><br>
+            <label>Password</label>
+            <input type="password" id="pwd"><br>
+            <button id="button_login">Login</button>
+            
+        </form>
+    </section>
+
+    <script>
+       const nome = document.getElementById("fname");
+       const cognome= document.getElementById("lname");
+       const password=document.getElementById("pwd");
+       const login=document.getElementById("button_login");
+
+       login.addEventListener("click",function(e){
+        e.preventDefault();
+        console.log(nome.value);
+        console.log(cognome.value);
+        console.log(typeof nome.value);
+
+        if(nome.value =="ISABEL" && cognome.value=="CIARTANO" && password.value=="ciao"){
+        alert("ciao "+ nome.value)}
+        else{alert("un campo inserito non è corretto nome utente o password sbagliati ")}
+       })
+
+
+    </script>
+    
+</body>
+</html>
