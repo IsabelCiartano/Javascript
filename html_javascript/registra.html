@@ -12,25 +12,64 @@
     <section>
         <form>
             <label>Nome:</label>
-            <input type="text" id="fname"><br>
+            <input type="text" id="nome">
+            <div id="msgnome"></div>
+            <br>
             <label>Cognome:</label>
-            <input type="text" id="lname"><br>
+            <input type="text" id="cognome">
+            <div id="msgcognome"></div>
+            <br>
             <label>Email:</label>
-            <input type="text" id="email"><br>
-            <label>Numero di telefono:</label>
-            <input type="text" id="telefono"><br>
+            <input type="text" id="email">
+            <div id="msgemail"></div>
+            <br>
 
-            <label>Sesso:</label>
-            <input type="radio" id="maschio" name="sesso" value="M">
-            <label>M</label>
-            <input type="radio" id="femmina"name="sesso" value="F">
-            <label>F</label><br>
-
-            
-            <button id="button_login">Registra</button>
-            
+            <button id="button">Registra</button>
+            <div id="msg"></div>
         </form>
+
     </section>
-    
+    <script>
+        const nome = document.getElementById("nome");
+       const cognome= document.getElementById("cognome");
+       const email=document.getElementById("email");
+       const invio=document.getElementById("button");
+       const msg=document.getElementById("msg");
+       const msgNome=document.getElementById("msgnome");
+       const msgCognome=document.getElementById("msgcognome");
+       const msgEmail=document.getElementById("msgemail");
+
+       invio.addEventListener("click",function(e){
+        e.preventDefault();
+        msgNome.textContent="";
+        msgCognome.textContent="";
+        msgEmail.textContent="";
+        msg.textContent="";
+        if(nome.value == ""){
+            const Divnome=document.createElement('div');
+            Divnome.textContent="campo obbligatorio";
+            Divnome.style.color="red";
+            msgNome.appendChild(Divnome);
+        } 
+        if(cognome.value == ""){
+            const Divcognome=document.createElement('div');
+            Divcognome.textContent="campo obbligatorio";
+            Divcognome.style.color="red";
+            msgCognome.appendChild(Divcognome);
+        } 
+        if(email.value == ""){
+            const Divemail=document.createElement('div');
+            Divemail.textContent="campo obbligatorio";
+            Divemail.style.color="red";
+            msgEmail.appendChild(Divemail);
+        } 
+        if(nome.value !="" && cognome.value !=""&&email.value !=""){
+            const divnew=document.createElement('div');
+            divnew.textContent="registazione completata";
+            divnew.style.color="green";
+            msg.appendChild(divnew);
+        }
+    })
+    </script>
 </body>
 </html>

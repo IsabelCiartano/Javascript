@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label id="labeluser">Utente: <input type="text" size="20" id="fuser"></label><br>
+        <label id="labelpsw">Password: <input type="password" size="20" id="fpsw" ></label><br>
+        
+        <input type="submit" id="fsubmit" value="invia">
+    </form>
+
+    <!--lo spazio creato per il nodo padre-->
+    <div id="msg">
+      
+    </div>
+    
+</body>
+</html>
+
+
+
+<script>
+
+const utente = document.getElementById("fuser");
+const psw = document.getElementById("fpsw");
+const invio = document.getElementById("fsubmit");
+const msg = document.getElementById("msg"); //il PADRE
+
+invio.addEventListener("click", function(e){
+    e.preventDefault(); //blocca prima del SUBMIT
+    if(psw.value == "a"){
+
+        //alternativa____innerHtml
+       // msg.innerHTML("<div id='nuovoDiv'>Attenzione utente sbagliato</div>+"+psw.value)
+        ///////////////
+       // 1. Crea il nuovo elemento div
+            const nuovoDiv = document.createElement('div');
+
+            // 2. Imposta gli attributi o il contenuto del div (opzionale)
+            nuovoDiv.textContent = 'Questo è un nuovo div!'; //////////////////// EDW: qua potrei utilizzare innerHTML ma non sarebbe sicuro per gli attacchi XXS Cross-site Scripting
+            nuovoDiv.style.backgroundColor = 'lightblue';
+            nuovoDiv.style.padding = '20px';
+
+            // 4. Aggiungi il nuovo div come figlio dell'elemento genitore
+            msg.appendChild(nuovoDiv); //aggiunge al PADRE 'msg' aggiunge l'elemento 'nuovoDiv'
+    }      
+
+})
+</script>

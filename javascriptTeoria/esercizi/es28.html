@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //crea la funzione che restituisce un messaggio di saluto 
+
+//tradizionale---------------------------------------------------------------
+        function greetT(name){
+           if(name){
+            console.log("ciao " + name);
+           } else{
+            console.log("ciao a tutti !");
+        }}
+        
+    console.log("tradizionale")
+    greetT()
+    greetT("alice")
+
+//const---------------------------------------------------------------------
+        const greetC=function(name){
+            if (name){
+                 console.log("ciao " + name);
+            }else{
+                console.log("ciao a tutti !");
+        }}
+    console.log("const")
+    greetC()
+    greetC("sara")
+
+//freccia--------------------------------------------------------------------------
+        const greetF=name=>{if(name){
+            console.log("ciao "+name)}else{
+                console.log("ciao a tutti")
+            }}
+        console.log("freccia")
+        greetF()
+        greetF("vittoria")
+
+//nelle funzioni freccia e sottointeso il return se è presente una sola istruzione 
+
+    const saluto=name=>
+        name?"ciao"+name:"ciao a tutti";//non ce bisogno del return
+     
+    </script>
+</body>
+</html>

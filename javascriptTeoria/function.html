@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//funzioni TRADIZIONALI----------------------------------------------------------------
+        //può essere chiamata prima della definizione
+        //hanno scope come var 
+        console.log(foo());
+        function foo(){
+            function bar(){
+                console.log("hello");
+            }
+            bar();
+            return 42;
+        }
+        //bar();//non visibile scope come var 
+        console.log(typeof foo);//funtion
+        console.log(foo);//visializza il codice della funzione 
+        //visibilita var vuol dire che posso richiamarla prima della funzione è visibile fuori dalla funzione 
+        
+//funzioni CONST---------------------------------------------------------
+        //non e possibile vederla prima pk non dichiarata 
+       // foo1() undefined 
+       //bar1() undefined 
+        const foo1=function(){
+            bar1=function(){//senza var e le t è globale 
+                console.log("ciaooo")
+            }
+            bar1()
+            return 42
+        }
+        foo1()
+        console.log("di nuovo")
+        bar1()//visibile pk globale 
+        console.log(typeof foo1)//visibilità codice 
+        console.log(">"+foo1())
+
+
+//funzioni CALLBACK-------------------------------------------------------------
+        function ask(question,yes,no){
+            if(confirm(question))
+                yes()
+            else
+                no();//funzioni di callback
+        }
+        //funzioni chiamate dopo gli passo il codice tramite il nome yes 
+        function showOK(){
+            alert("hai accettato")
+        }
+        function showCancel(){
+            alert("hai annullato ")
+        }
+
+        ask("confermi?", showOK,showCancel)
+
+//funzioni ANONIME-----------------------------------------------------------------------------
+        //non possono essere richiamate pk non hanno un nome 
+        ask("do you agree that moliberta is stupid?",
+            function(){alert("yes")},
+            function(){alert("no")}
+        )
+
+        
+//funzioni FRECCIA------------------------------------------------------------------------------------ 
+        ask("are you stupid?",
+           ()=>alert("yes"),//secondo paramentro 
+           ()=>alert("no"))//terzo paramentro 
+        
+        //se la funzione freccia ha solo un argomento si possono omettere le tonde
+        const  double = n => n*2;//double è il nome della funzione a cui assegno la funzione freccia 
+        //double nome 
+        //n parametro
+        //n*2 return 
+        //(n) => return(n*2);scritta senza abbraviazioni 
+
+        //se non ha paramentri o più di uno bisogna mettere le tonde 
+        const hi=() => console.log("hellooo")
+        hi()
+
+        //se ha più istruzioni si usano{} e il return 
+        const sum=(a,b)=>{
+            let results=a+b
+            return results
+        }
+
+    </script>
+
+</body>
+</html>

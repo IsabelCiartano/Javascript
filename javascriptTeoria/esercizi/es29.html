@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //dati due numeri restituire la loro media 
+//tradizionale---------------------------------------------------------------------
+        function mediaT(a,b){
+            let m=0;
+            m=(a+b)/2;
+            console.log("la media è " +m);
+        }
+// const----------------------------------------------------------------------------
+        const mediaC=function(a,b){
+            let m=0;
+            m=(a+b)/2;
+            console.log("la media è " +m);
+        }
+//freccia----------------------------------------------------------------------------
+        const mediaF=(a,b)=>{
+            let m=0;
+            m=(a+b)/2;
+            console.log("la media è " +m);
+        }
+//-----------------------------------------------------------------------------
+        mediaT(3,3)
+        mediaC(5,5)
+        mediaF(1,1)
+
+//VALORI DI DEFAULT=================================================================
+function media(a=2,b=3){
+    return (a+b)/2;
+}
+
+console.log(media(5))//sottointeso il 3 pk abbiamo messo b=3
+console.log(media(undefined,6))//sottointeso 2 pk a=2
+console.log(media())//entrambi sottointesi a=2 b=3
+
+    </script>
+</body>
+</html>
