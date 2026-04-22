@@ -37,11 +37,9 @@ console.log("--- Esercizio 1 ---");
 
 // Scrivi qui il tuo codice ↓
 
-
-
-
-
-
+for(num of numeri){
+    console.log("numero: "+num);
+}
 
 // ── Esercizio 2 ─────────────────────────────────────────────
 // Usa for...in per stampare ogni indice e il valore corrispondente
@@ -52,9 +50,9 @@ console.log("--- Esercizio 2 ---");
 
 // Scrivi qui il tuo codice ↓
 
-
-
-
+for(index in parole){
+    console.log("parola["+index+"] = "+parole[index]);
+}
 
 // ── Esercizio 3 ─────────────────────────────────────────────
 // Usa forEach per calcolare la somma di tutti i numeri
@@ -81,11 +79,8 @@ console.log(somma);
 console.log("--- Esercizio 4 ---");
 
 // Scrivi qui il tuo codice ↓
-// let maiuscole = ...
-
-
-
-
+let maiuscole = parole.map(parola=>parola.toUpperCase());
+console.log("array in maiuscolo:",maiuscole);
 
 // ── Esercizio 5 ─────────────────────────────────────────────
 // Usa filter per creare un nuovo array "pari" contenente
@@ -96,12 +91,8 @@ console.log("--- Esercizio 4 ---");
 console.log("--- Esercizio 5 ---");
 
 // Scrivi qui il tuo codice ↓
-// let pari = ...
-
-
-
-
-
+let pari = numeri.filter(n=>n%2===0);
+console.log("array di pari:" ,pari);
 
 // ── Esercizio 6 ─────────────────────────────────────────────
 // Usa filter per trovare tutte le parole di "parole"
@@ -111,11 +102,8 @@ console.log("--- Esercizio 5 ---");
 console.log("--- Esercizio 6 ---");
 
 // Scrivi qui il tuo codice ↓
-// let lunghe = ...
-
-
-
-
+let lunghe = parole.filter(parola=>parola.length>4)
+console.log(lunghe);
 
 // ── Esercizio 7 ─────────────────────────────────────────────
 // Usa find per trovare il primo numero maggiore di 20
@@ -125,15 +113,8 @@ console.log("--- Esercizio 6 ---");
 console.log("--- Esercizio 7 ---");
 
 // Scrivi qui il tuo codice ↓
-// let grande = ...
-
-
-
-
-// console.log(grande);
-
-
-
+let grande = numeri.find(n=>n>40);
+console.log(grande);
 
 // ── Esercizio 8 ─────────────────────────────────────────────
 // Usa findIndex per trovare la posizione della parola "uva"
@@ -143,12 +124,8 @@ console.log("--- Esercizio 7 ---");
 console.log("--- Esercizio 8 ---");
 
 // Scrivi qui il tuo codice ↓
-// let pos = ...
-
-
-
-
-// console.log(pos);
+let pos = parole.findIndex(parola=>parola==="uva");
+console.log(pos);
 
 
 // ── Esercizio 9 ─────────────────────────────────────────────
@@ -159,12 +136,8 @@ console.log("--- Esercizio 8 ---");
 console.log("--- Esercizio 9 ---");
 
 // Scrivi qui il tuo codice ↓
-// let lunghezze = ...
-
-
-
-
-// console.log(lunghezze);
+let lunghezze = parole.map(parola=>parola.length);
+console.log(lunghezze);
 
 
 // ── Esercizio 10 ────────────────────────────────────────────
@@ -176,10 +149,15 @@ console.log("--- Esercizio 10 ---");
 
 // Scrivi qui il tuo codice ↓
 
+const mat =[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
 
-
-
-
+for(let numeri of mat){
+    console.log(numeri);
+}
 
 // ============================================================
 //  ESERCIZI AVANZATI
@@ -194,12 +172,10 @@ console.log("--- Esercizio 10 ---");
 console.log("--- Avanzato 1 ---");
 
 // Scrivi qui il tuo codice ↓
-// let descrizioni = ...
-
-
-
-
-// console.log(descrizioni);
+let descrizioni = studenti.map(studente=>{
+    return studente.nome + " ha preso "+ studente.voto
+})
+console.log(descrizioni);
 
 
 // ── Avanzato 2 ──────────────────────────────────────────────
@@ -211,12 +187,9 @@ console.log("--- Avanzato 1 ---");
 console.log("--- Avanzato 2 ---");
 
 // Scrivi qui il tuo codice ↓
-// let promossi = ...
-
-
-
-
-// console.log(promossi);
+ let promossi = studenti.filter(studente=>studente.voto >= 6);
+ promossi=promossi.map(studente=>studente.nome);
+console.log(promossi);
 
 
 // ── Avanzato 3 ──────────────────────────────────────────────
@@ -230,10 +203,15 @@ console.log("--- Avanzato 3 ---");
 
 // Scrivi qui il tuo codice ↓
 
+let s = 0;
 
+studenti.forEach(studente => {
+  s += studente.voto;
+});
 
+let media = (s / studenti.length).toFixed(2);
 
-
+console.log(media);
 
 // ── Avanzato 4 ──────────────────────────────────────────────
 // Hai una matrice 4×4 inizializzata a zero.
@@ -248,9 +226,21 @@ console.log("--- Avanzato 3 ---");
 console.log("--- Avanzato 4 ---");
 
 // Scrivi qui il tuo codice ↓
+const N = 4, M = 4;
+const griglia = new Array(N);
+for (let k = 0; k < N; k++) {
+    griglia[k] = new Array(M).fill(0);
+}
 
-
-
+for (let k=0;k<N;k++){
+    for(let i=0;i<N;i++){
+        griglia[k][i]=(k+1)*(i+1);
+    }
+    
+}
+for(let riga of griglia){
+    console.log(riga);
+}
 
 
 // ── Avanzato 5 ──────────────────────────────────────────────
@@ -262,6 +252,11 @@ console.log("--- Avanzato 4 ---");
 console.log("--- Avanzato 5 ---");
 
 // Scrivi qui il tuo codice ↓
+
+let insufficente =studenti.find(studente=>studente.voto<6);
+let i=studenti.findIndex(studente=>studente==insufficente);
+i=i+1;
+console.log("il primo insufficente è "+insufficente.nome +" posizione: "+ i);
 
 
 

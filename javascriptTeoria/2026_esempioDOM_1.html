@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv"></div>
+</body>
+<script>
+        const myDiv = document.getElementById("myDiv");//prendo l'oggetto che ha per id "myDiv"
+     
+        const newP = document.createElement("p");//creo un elemento p cioè un paragrafo
+        newP.setAttribute("class", "my-class");//creo un nodo che ha attributo classe di nome my-class
+        //newP.className = "my-class" 
+        newP.textContent = "<h1>Nuovo</h1>"
+        //newP.innerHTML = "<h1>Nuovo</h1>" per interpretare il codice html
+        //const t = document.createTextNode("Nuovo");
+        // newP.appendChild(t);
+        newP.style.color = 'red';//tramite lo style gli do il colore che preferisco 
+
+        myDiv.appendChild(newP);//lo incollo al div che ho preso inizialmente
+        
+        myDiv.innerHTML += "<p class='my-class' style='color: red;'>Nuovo</p>"; //per aggiungere senza sovrascrivere
+        //se non metto il + viene tutto sovreascritto con il + non viene sovrascritto 
+    </script>
+</html>
