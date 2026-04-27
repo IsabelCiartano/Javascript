@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra</title>
+</head>
+<body>
+    <header>
+    </header>
+    <section>
+        <form>
+            <label>Nome: </label>
+            <input type="text" id="nome"><br>
+            <div id="msgNome"></div><br>
+            <label>Cognome: </label>
+            <input type="text" id="cognome"><br>
+            <div id="msgCognome"></div><br>
+            <label>Mail: </label>
+            <input type="text" id="email"><br>
+            <div id="msgEmail"></div><br>
+            <button id="pulsante_registra">Aggiungi</button><br>
+            <div id="msg"></div><br>
+
+        </form>
+        <table id="tabella">
+            <tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+            </tr>
+        </table>
+    </section>
+    <script>
+        const nome = document.getElementById("nome")
+        const cognome = document.getElementById("cognome")
+        const email = document.getElementById("email")
+        const registra = document.getElementById("pulsante_registra")
+
+        const msgNome = document.getElementById("msgNome"); 
+        const msgCognome = document.getElementById("msgCognome"); 
+        const msgEmail = document.getElementById("msgEmail"); 
+        const msgRegistrazioneCompiuta = document.getElementById("msg"); 
+
+        
+        const tabella = document.getElementById("tabella")
+        registra.addEventListener("click", function(e) {
+            e.preventDefault(); //blocca prima del SUBMIT
+
+            msgCognome.textContent = ""
+            msgNome.textContent = ""
+            msgEmail.textContent = ""
+            msg.textContent = ""
+
+             if(cognome.value == "") { 
+                const divCognome = document.createElement('div');
+                divCognome.style.color = "red";
+                divCognome.textContent = "Campo obbligatorio";
+                msgCognome.appendChild(divCognome); 
+            }
+
+            if(nome.value == "") {
+                const divNome = document.createElement('div');
+                divNome.style.color = "red";
+                divNome.textContent = "Campo obbligatorio";
+                msgNome.appendChild(divNome);
+            }
+
+            if(email.value == "") {
+                const divEmail = document.createElement('div');
+                divEmail.style.color = "red";
+                divEmail.textContent = "Campo obbligatorio";
+                msgEmail.appendChild(divEmail); 
+            }
+
+            if(nome.value != "" && cognome.value != "" && email.value != "") {
+                const divRegistrazione = document.createElement('div');
+                divRegistrazione.style.color = "green";
+                divRegistrazione.textContent = "Aggiunto !";
+                msg.appendChild(divRegistrazione); 
+
+            const newline = document.createElement('tr')
+
+            const nameC=document.createElement('td')
+            nameC.textContent=nome.value;
+            const lnameC=document.createElement('td')
+            lnameC.textContent=cognome.value;
+            const emailC=document.createElement('td')
+            emailC.textContent=email.value;
+
+            newline.appendChild(nameC);
+            newline.appendChild(lnameC);
+            newline.appendChild(emailC);
+            tabella.appendChild(newline);
+            }})
+    </script>

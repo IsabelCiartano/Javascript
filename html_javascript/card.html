@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra</title>
+</head>
+
+<body>
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+    <header>
+
+    </header>
+    <section>
+        <form>
+            <label>Nome:</label>
+            <input type="text" id="nome">
+            <div id="msgnome"></div>
+            <br>
+            <label>Cognome:</label>
+            <input type="text" id="cognome">
+            <div id="msgcognome"></div>
+            <br>
+            <label>Email:</label>
+            <input type="text" id="email">
+            <div id="msgemail"></div>
+            <br>
+
+            <button id="button">Registra</button>
+            <div id="msg"></div>
+        </form>
+        <div id="cards-container">
+            <div class="card">
+                <div class="container" id="card">
+
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script>
+        const nome = document.getElementById("nome");
+        const cognome = document.getElementById("cognome");
+        const email = document.getElementById("email");
+        const invio = document.getElementById("button");
+        const msg = document.getElementById("msg");
+        const msgNome = document.getElementById("msgnome");
+        const msgCognome = document.getElementById("msgcognome");
+        const msgEmail = document.getElementById("msgemail");
+        const msgRegistrazioneCompiuta = document.getElementById("msg");
+        const card = document.getElementById("card")
+
+        invio.addEventListener("click", function (e) {
+            e.preventDefault(); //blocca prima del SUBMIT
+
+            msgCognome.textContent = ""
+            msgNome.textContent = ""
+            msgEmail.textContent = ""
+            msg.textContent = ""
+
+            if (cognome.value == "") {
+                const divCognome = document.createElement('div');
+                divCognome.style.color = "red";
+                divCognome.textContent = "Campo obbligatorio";
+                msgCognome.appendChild(divCognome);
+            }
+
+            if (nome.value == "") {
+                const divNome = document.createElement('div');
+                divNome.style.color = "red";
+                divNome.textContent = "Campo obbligatorio";
+                msgNome.appendChild(divNome);
+            }
+
+            if (email.value == "") {
+                const divEmail = document.createElement('div');
+                divEmail.style.color = "red";
+                divEmail.textContent = "Campo obbligatorio";
+                msgEmail.appendChild(divEmail);
+            }
+            const cardsContainer = document.getElementById("cards-container");
+            if (nome.value != "" && cognome.value != "" && email.value != "") {
+                const divRegistrazione = document.createElement('div');
+                divRegistrazione.style.color = "green";
+                divRegistrazione.textContent = "Aggiunto!";
+                msg.appendChild(divRegistrazione);
+
+                const newCard = document.createElement("div");
+                newCard.classList.add("card");
+
+                const container = document.createElement("div");
+                container.classList.add("container");
+
+                const cardname = document.createElement('h4');
+                cardname.textContent = nome.value + " " + cognome.value;
+
+                const cardemail = document.createElement('p');
+                cardemail.textContent = email.value;
+
+                container.appendChild(cardname);
+                container.appendChild(cardemail);
+
+                newCard.appendChild(container);
+                cardsContainer.appendChild(newCard);
+            }
+        })
+    </script>

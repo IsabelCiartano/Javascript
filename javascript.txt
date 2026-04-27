@@ -1,0 +1,9 @@
+html linguaggio di mark up 
+sito web -> 
+contenitori con div 
+<div id=> 
+
+</div>
+id identifictore univoco 
+name identificatore non univico 
+<nav> barra navigazione
