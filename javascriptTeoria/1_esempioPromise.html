@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio Promise</title>
+</head>
+
+<body>
+    <script>
+        let id=-15;
+        function fetchData(id) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (id > 0)
+                        resolve(`Dati trovati per ID: ${id}`);
+                    else
+                        reject(new Error(`ID non valido (${id})`));
+                }, 2000);
+            });
+        }
+        
+        fetchData(id)       //dai un valore all'id
+            .then((ris) => console.log("Successo:", ris)) 	//ris=risultato della resolve
+            .catch((err) => console.log("Errore:", err.message)) //err=risultato della reject
+            .finally(() => console.log("Operazione terminata")) //eseguita in ogni caso
+
+    </script>
+</body>
+
+</html>

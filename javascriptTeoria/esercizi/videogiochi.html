@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+    </style>
+    <button id="aggiorna">aggiorna</button>
+    <div id="videogiochi">
+         <div id="cards-container">
+            <div class="card">
+                <div class="container" id="card">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+const invio = document.getElementById("aggiorna");
+const div = document.getElementById("videogiochi");
+
+const videogiochi = [
+    { id: "1", titolo: "Minecraft",     genere: "Sandbox", anno: 2011 },
+    { id: "2", titolo: "The Witcher 3", genere: "RPG",     anno: 2015 },
+    { id: "3", titolo: "Among Us",      genere: "Party",   anno: 2018 }
+];
+
+function creaCardGioco(gioco) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const titolo = document.createElement("h2");
+    titolo.textContent = gioco.titolo;
+
+    const genere = document.createElement("p");
+    genere.textContent = "Genere: " + gioco.genere;
+
+    const anno = document.createElement("p");
+    anno.textContent = "Anno: " + gioco.anno;
+
+    card.appendChild(titolo);
+    card.appendChild(genere);
+    card.appendChild(anno);
+
+    return card;
+}
+
+function mostraGiochi(giochi) {
+
+    giochi.forEach(gioco => {
+        const card = creaCardGioco(gioco);
+        div.appendChild(card);
+    });
+}
+invio.addEventListener("click", function(e) {
+    e.preventDefault();
+    mostraGiochi(videogiochi);
+});
+</script>
+</html>

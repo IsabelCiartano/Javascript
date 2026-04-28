@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio promise con fetch</title>
+</head>
+
+<body>
+    <script>
+        //Esempio di utilizzo di fetch per ottenere dati da un'API
+        const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {//se ok status = 200, Not Found = 404
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+                return response.json(); //parse del JSON
+            })
+            .then(data => {
+                console.log("Dati ricevuti:", data);
+            })
+            .catch(error => {
+                console.error("Si è verificato un errore:", error);
+            });
+    </script>
+</body>
+
+</html>
