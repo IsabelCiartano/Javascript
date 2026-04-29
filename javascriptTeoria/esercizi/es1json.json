@@ -1,0 +1,23 @@
+[
+  {
+    "modello": "500",
+    "cilindrata": 1000,
+    "colori": [
+      "rosso",
+      "nero",
+      null,
+      null
+    ]
+  },
+  {
+    "modello": "Classe A",
+    "cilindrata": 2000,
+    "colori": [
+      "rosso",
+      "nero",
+      null,
+      null
+    ]
+  },
+  null
+]

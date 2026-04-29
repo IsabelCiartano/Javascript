@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esercizio 0</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+// ============================================================
+// LEZIONE 0 — Esercizio sulle Promise
+// ============================================================
+// Crea una funzione aspetta(secondi) che:
+//   - restituisce una Promise
+//   - si risolve dopo N secondi
+//   - il valore passato a resolve deve essere la stringa:
+//     "Pronti dopo X secondi"  (dove X è il numero di secondi)
+//
+// Poi usa il CHAINING per:
+//   1. stampare un messaggio dopo 1 secondo
+//   2. stampare un secondo messaggio dopo altri 2 secondi
+//
+// SUGGERIMENTO: usa setTimeout() dentro la Promise.
+//               Per il chaining ricordati di RESTITUIRE
+//               la nuova Promise nel .then().
+//
+// Per eseguire questo file apri il terminale e digita:
+//   node 00_promise_base.js
+// ============================================================
+
+function aspetta(secondi) {
+  // TODO: restituisci una new Promise che usa setTimeout
+  //       e chiama resolve con il messaggio corretto
+
+ return new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+    resolve("pronti dopo "+secondi+" secondi")},secondi*1000);
+ });
+
+}
+
+// TODO: usa aspetta(1) poi .then() per aspettare altri 2 secondi
+//       e stampa i messaggi in console
+
+aspetta(3)
+  .then((msg)=>{
+    console.log(msg);
+    return aspetta(2);
+  })
+  .then((msg)=>{
+    console.log(msg);
+  })
+  .catch((err)=>console.log(err))
+  .finally(()=>console.log("operazione terminata"))
+</script>
+</html>
